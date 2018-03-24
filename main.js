@@ -68,10 +68,29 @@ const buildDomstring = (studentArray) => {
         domString += `<h1>${student.firstName} ${student.lastName}</h1>`;
         domString +=    `<h3>${student.catchPhrase}</h3>`;
         domString +=    `<img src="${student.avatar}" alt="">`;
-        domString +=    `<button class="button">Brought Pie</button>`;
+        domString +=    `<button class="card-button">Brought Pie</button>`;
         domString += `</div>`;
     })
     printToDom(domString, 'card-holder');
 }
 
 buildDomstring(students);
+
+const changeNameToGreen = (e) => {
+    
+    const nameOfStudent = e.target.parentNode.children[0];
+    nameOfStudent.classList.add('green');
+    
+
+}
+
+const allTheButton = document.getElementsByClassName('card-button');
+
+for (let i = 0; i < allTheButton.length; i++){
+    allTheButton[i].addEventListener("click", changeNameToGreen); 
+}
+
+    
+
+    //it runs preloads so eliminate (e)!!  changeNameToGreen(e)
+
